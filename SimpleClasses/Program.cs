@@ -2,59 +2,27 @@
 
 namespace SimpleClasses
 {
-    public class vector<T>
-    {
-        public vector()
-        {
-            size = 0;
-            capacity = 0;
-            my_data = new T[capacity];
-        }
-
-        public vector(int size)
-        {
-            this.size = size;
-            this.capacity = size * 2;
-            my_data = new T[capacity];
-        }
-
-        public vector(params T[] args)
-        {
-            this.size = args.Length;
-            this.capacity = this.size * 2;
-            my_data = new T[capacity];
-            for (int i = 0; i < size; ++i)
-            {
-                my_data[i] = args[i];
-            }
-        }
-
-        public void printVector()
-        {
-            for (int i = 0; i < size; ++i)
-            {
-                Console.WriteLine(my_data[i] + " ");
-            }
-        }
-
-        public int get_size() { return this.size; }
-        public int get_capacity() { return this.capacity; }
-
-        private T[] my_data;
-        private int size;
-        private int capacity;
-    }
-
-
     class Program
     {
         static void Main(string[] args)
         {
-            vector<int> vec;
-            vec = new vector<int>(1,2,3);
-            Console.WriteLine(vec.get_size());
-            Console.WriteLine(vec.get_capacity());
+            vector<int> vec = new vector<int>(1,2,3);
+            Console.WriteLine("Size = " + vec.get_size());
+            Console.WriteLine("Capcaity = " + vec.get_capacity());
             vec.printVector();
+            vector<int> vec_2 = new vector<int>(4,5,6,7);
+            Console.WriteLine("Size = " + vec_2.get_size());
+            Console.WriteLine("Capcaity = " + vec_2.get_capacity());
+            vec_2.printVector();
+            vector<int> vec_3 = vec + vec_2;
+            Console.WriteLine("Size = " + vec_3.get_size());
+            Console.WriteLine("Capcaity = " + vec_3.get_capacity());
+            //vec_3.printVector();
+            vec_3[0] = 10;
+            for (int i = 0; i < vec_3.get_size(); ++i)
+            {
+                Console.Write(vec_3[i] + " ");
+            }
         }
     }
 }
