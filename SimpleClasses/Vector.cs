@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleClasses
 {
@@ -82,7 +78,7 @@ namespace SimpleClasses
         public bool empty() { return size == 0; }
         public void resize(int count)
         {
-            if (size > count)
+            if (size >= count)
             {
                 capacity = count * 2;
                 size = count;
@@ -94,7 +90,7 @@ namespace SimpleClasses
                     my_data[i] = temp_data[i];
                 }
             }
-            else if (size < count)
+            else
             {
                 capacity = count * 2;
                 T[] temp_data = my_data;
